@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abdur Rahim Pranto — Frontend Developer | React Developer | Creative Problem Solver. Building modern web experiences with React, modern UI, and smooth animations.">
+    <meta name="keywords" content="Abdur Rahim Pranto, Frontend Developer, React Developer, Web Developer, Portfolio, Bangladesh">
+    <meta name="author" content="Abdur Rahim Pranto">
+    <meta property="og:title" content="Abdur Rahim Pranto — Portfolio">
+    <meta property="og:description" content="Frontend Developer | React Developer | Creative Problem Solver">
+    <meta property="og:type" content="website">
+    <title>Abdur Rahim Pranto — Frontend Developer Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2306B6D4'/%3E%3Cstop offset='50%25' stop-color='%237C3AED'/%3E%3Cstop offset='100%25' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='20' width='100' height='100' fill='%23050816'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='50' font-weight='bold' fill='url(%23g)' text-anchor='middle'%3E%26lt;P/%26gt;%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ============ LOADER ============ -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <svg class="loader-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#06B6D4"/>
+                        <stop offset="50%" stop-color="#7C3AED"/>
+                        <stop offset="100%" stop-color="#EC4899"/>
+                    </linearGradient>
+                </defs>
+                <rect x="10" y="10" width="100" height="100" rx="24" fill="none" stroke="url(#logoGrad)" stroke-width="3" class="logo-rect"/>
+                <text x="60" y="76" font-family="'Space Grotesk', monospace" font-size="44" font-weight="700" fill="url(#logoGrad)" text-anchor="middle" class="logo-text">&lt;P/&gt;</text>
+            </svg>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+            <p class="loader-name">Pranto.</p>
+        </div>
+    </div>
+
+    <!-- ============ SCROLL PROGRESS ============ -->
+    <div id="scrollProgress" class="scroll-progress"></div>
+
+    <!-- ============ CURSOR GLOW ============ -->
+    <div id="cursorGlow" class="cursor-glow"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <svg class="nav-logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#06B6D4"/>
+                            <stop offset="50%" stop-color="#7C3AED"/>
+                            <stop offset="100%" stop-color="#EC4899"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="10" width="100" height="100" rx="24" fill="none" stroke="url(#navLogoGrad)" stroke-width="3"/>
+                    <text x="60" y="76" font-family="'Space Grotesk', monospace" font-size="44" font-weight="700" fill="url(#navLogoGrad)" text-anchor="middle">&lt;P/&gt;</text>
+                </svg>
+                <span class="nav-logo-text">Pranto<span class="accent-dot">.</span></span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <a href="#contact" class="nav-cta">Hire Me</a>
+            </div>
+
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ MOBILE MENU ============ -->
+    <div id="mobileMenu" class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-nav-link">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+            <li><a href="#education" class="mobile-nav-link">Education</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+            <li><a href="#certifications" class="mobile-nav-link">Certifications</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- ============ HERO SECTION ============ -->
+        <section id="home" class="hero">
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="hero-grid-bg"></div>
+            <div class="hero-container">
+                <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Available for Freelance
+                    </div>
+                    <h1 class="hero-greeting">Hello, I'm</h1>
+                    <h2 class="hero-name">Abdur Rahim <span class="gradient-text">Pranto</span></h2>
+                    <div class="hero-typing">
+                        <span class="typing-prefix">I'm a </span>
+                        <span id="typingText" class="typing-text"></span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+                    <p class="hero-description">
+                        Passionate about building modern web experiences with React, modern UI, 
+                        smooth animations, and AI-inspired interfaces.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            Contact Me
+                        </a>
+                        <a href="#about" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            Explore More
+                        </a>
+                    </div>
+                    <div class="hero-info">
+                        <div class="hero-info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Lakshmipur, Bangladesh
+                        </div>
+                        <div class="hero-info-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            abdurrahimpranto201918@gmail.com
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-orbit hero-orbit-1"></div>
+                        <div class="hero-orbit hero-orbit-2"></div>
+                        <div class="hero-orbit hero-orbit-3"></div>
+                        <div class="hero-glow"></div>
+                        <div class="hero-image-container">
+                            <img src="assets/profile.jpg" alt="Abdur Rahim Pranto" class="hero-image" id="heroImage">
+                        </div>
+                        <!-- Floating tech icons -->
+                        <div class="floating-icon floating-icon-1" title="HTML5">
+                            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#E44D26" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.076-.757.076-.757.076-.756H6.556l.228 2.716.228 2.716h8.036l-.308 3.436-2.74.736-2.74-.734-.176-1.97H6.344l.345 3.875 5.311 1.47 5.313-1.47.69-7.71H8.531z"/></svg>
+                        </div>
+                        <div class="floating-icon floating-icon-2" title="React">
+                            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#61DAFB" d="M12 9.861A2.139 2.139 0 1 0 12 14.139 2.139 2.139 0 1 0 12 9.861zM6.008 16.255l-.472-.12C2.018 15.246 0 13.737 0 11.996s2.018-3.25 5.536-4.139l.472-.119.133.468a23.53 23.53 0 0 0 1.363 3.578l.101.213-.101.213a23.307 23.307 0 0 0-1.363 3.578l-.133.467zM5.317 8.95c-2.674.751-4.315 1.9-4.315 3.046 0 1.145 1.641 2.294 4.315 3.046a24.95 24.95 0 0 1 1.182-3.046A24.752 24.752 0 0 1 5.317 8.95zM17.992 16.255l-.133-.469a23.357 23.357 0 0 0-1.364-3.577l-.101-.213.101-.213a23.42 23.42 0 0 0 1.364-3.578l.133-.468.473.119c3.517.889 5.535 2.398 5.535 4.14s-2.018 3.25-5.535 4.139l-.473.12zm-.491-4.259c.48 1.039.877 2.06 1.182 3.046 2.675-.752 4.315-1.901 4.315-3.046 0-1.146-1.641-2.295-4.315-3.046a24.788 24.788 0 0 1-1.182 3.046zM5.31 8.945l-.133-.467C4.188 5.262 4.26 2.528 5.849 1.14 6.233.803 6.705.628 7.24.628c.975 0 2.141.545 3.365 1.612l.364.309-.364.31a23.397 23.397 0 0 0-2.628 2.685l-.153.19-.219.031a23.63 23.63 0 0 0-3.778.843l-.472.12-.025-.783zM7.24 1.632c-.262 0-.475.073-.65.23-.975.874-1.2 3.088-.445 5.67a25.283 25.283 0 0 1 3.163-.701 24.866 24.866 0 0 1 2.213-2.254c-1.012-.88-1.958-1.341-2.744-1.341h-.001l.464-.304zm11.502 14.412l-.025.782-.472-.119a23.665 23.665 0 0 0-3.779-.844l-.218-.031-.153-.19a23.32 23.32 0 0 0-2.628-2.686l-.365-.309.365-.31c1.224-1.036 2.39-1.612 3.365-1.612.535 0 1.007.175 1.39.511 1.59 1.388 1.661 4.122.673 7.34l-.153.468zM13.872 15.03c1.126.072 2.18.238 3.162.702.756-2.583.531-4.797-.444-5.671-.175-.157-.388-.23-.65-.23-.786 0-1.732.461-2.744 1.34a25.205 25.205 0 0 1 2.213 2.256l-1.537 1.603zM18.69 8.945l-.472-.119a23.573 23.573 0 0 0-3.779-.843l-.218-.031-.153-.19a23.33 23.33 0 0 0-2.628-2.686l-.365-.309.365-.31c1.224-1.067 2.39-1.612 3.365-1.612.535 0 1.007.175 1.39.511 1.59 1.388 1.661 4.122.673 7.34l-.153.468-.025-.219zM16.76 1.632c-.786 0-1.732.461-2.744 1.34.811.771 1.556 1.553 2.213 2.256 1.126-.072 2.18-.238 3.162-.701-.756-2.583-.531-4.797.444-5.671-.175-.157-.388-.23-.65-.23l-.425.006zM12 18.503a23.21 23.21 0 0 0 2.685-2.653l-.153-.19-.218-.031a23.58 23.58 0 0 0-4.628 0l-.219.031-.153.19A23.233 23.233 0 0 0 12 18.503zm-2.313-3.72c.773-.086 1.543-.129 2.313-.129s1.54.043 2.313.129a22.404 22.404 0 0 1-2.313 2.371 22.403 22.403 0 0 1-2.313-2.371zM12 5.497A23.292 23.292 0 0 0 9.315 8.15l.153.19.219.031a23.58 23.58 0 0 0 4.628 0l.218-.031.153-.19A23.292 23.292 0 0 0 12 5.497zM9.687 9.22c-.773.086-1.543.129-2.313.129S5.834 9.306 5.061 9.22a22.403 22.403 0 0 1 2.313-2.371A22.404 22.404 0 0 1 9.687 9.22zm4.626 0a22.403 22.403 0 0 1 2.313 2.371c-.773.086-1.543.129-2.313.129s-1.54-.043-2.313-.129a22.403 22.403 0 0 1 2.313-2.371z"/></svg>
+                        </div>
+                        <div class="floating-icon floating-icon-3" title="JavaScript">
+                            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#F7DF1E" d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.405-.585-.585-.765-.63-.63-1.47-.945-2.83-.885l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.275-.81 3.51.6 4.44 1.395.96 3.44 1.17 3.705 2.07.24 1.11-.87 1.47-1.965 1.34-.81-.18-1.26-.63-1.755-1.44l-1.83 1.05c.21.465.45.66.81 1.065 1.74 1.74 6.075 1.65 6.855-1.005.03-.09.24-.705.06-1.65l.045.09zm-9.57-12.15H9.94v8.1c0 1.74.09 3.33-.96 3.72-.705.28-1.245.06-1.65-.39-.405-.42-.585-.975-.825-1.53L4.74 17.16c.405.93.945 1.74 1.71 2.235 1.14.705 2.685.87 4.05.36 1.035-.42 1.815-1.23 2.22-2.49.315-.975.24-2.16.24-3.465l.015-7.665z"/></svg>
+                        </div>
+                        <div class="floating-icon floating-icon-4" title="Python">
+                            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#3776AB" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.961 3.403 5.961h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.914 0zM8.708 1.85a1.06 1.06 0 1 1 0 2.118 1.06 1.06 0 0 1 0-2.118z"/><path fill="#FFD43B" d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826h8.122S24 18.211 24 12.031c0-6.18-3.403-5.961-3.403-5.961h-2.03v2.867s.109 3.42-3.35 3.42H9.45s-3.24-.052-3.24 3.148v5.293S5.72 24 12.086 24zm3.206-1.85a1.06 1.06 0 1 1 0-2.118 1.06 1.06 0 0 1 0 2.118z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </div>
+        </section>
+
+        <!-- ============ STATS SECTION ============ -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="stat-number" data-count="2">0</div>
+                        <div class="stat-suffix">+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-number" data-count="10">0</div>
+                        <div class="stat-suffix">+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-number" data-count="4">0</div>
+                        <div class="stat-suffix"></div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-suffix">%</div>
+                        <div class="stat-label">Dedication</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT SECTION ============ -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Introduction</span>
+                    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-visual" data-aos="fade-right" data-aos-delay="200">
+                        <div class="about-image-card">
+                            <div class="about-image-glow"></div>
+                            <div class="about-code-window">
+                                <div class="code-header">
+                                    <span class="code-dot red"></span>
+                                    <span class="code-dot yellow"></span>
+                                    <span class="code-dot green"></span>
+                                    <span class="code-title">about_me.js</span>
+                                </div>
+                                <pre class="code-content"><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-prop">name</span>: <span class="code-string">"Abdur Rahim Pranto"</span>,
+  <span class="code-prop">role</span>: <span class="code-string">"Frontend Developer"</span>,
+  <span class="code-prop">location</span>: <span class="code-string">"Bangladesh"</span>,
+  <span class="code-prop">passion</span>: <span class="code-string">"Building Modern UI"</span>,
+  <span class="code-prop">learning</span>: [
+    <span class="code-string">"React"</span>, <span class="code-string">"Next.js"</span>,
+    <span class="code-string">"MERN Stack"</span>
+  ],
+  <span class="code-prop">available</span>: <span class="code-bool">true</span>
+};</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-content" data-aos="fade-left" data-aos-delay="400">
+                        <h3 class="about-subtitle">Aspiring Web Developer & Creative Problem Solver</h3>
+                        <p class="about-text">
+                            Motivated and detail-oriented professional currently pursuing a 
+                            <strong>Diploma in Computer Science & Technology</strong>. Passionate about web development 
+                            and combining technical skills with strong marketing, communication, and 
+                            administrative experience. Committed to continuous learning and delivering 
+                            results with punctuality, sincerity, and creative problem-solving.
+                        </p>
+                        <div class="about-cards">
+                            <div class="about-card">
+                                <div class="about-card-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c6 3 10 0 12-2v-3"/></svg>
+                                </div>
+                                <h4>Education</h4>
+                                <p>Diploma in CST</p>
+                            </div>
+                            <div class="about-card">
+                                <div class="about-card-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                </div>
+                                <h4>Experience</h4>
+                                <p>2+ Years</p>
+                            </div>
+                            <div class="about-card">
+                                <div class="about-card-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                </div>
+                                <h4>Languages</h4>
+                                <p>Bangla, English, Hindi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SKILLS SECTION ============ -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">My Abilities</span>
+                    <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skills-panel" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="skills-panel-title">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            Technical Skills
+                        </h3>
+                        <div class="skill-bars">
+                            <div class="skill-bar-item" data-skill="90">
+                                <div class="skill-bar-header">
+                                    <span>HTML & Web Development</span>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" style="--skill-width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill="50">
+                                <div class="skill-bar-header">
+                                    <span>Python (Basics)</span>
+                                    <span class="skill-percent">50%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" style="--skill-width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill="70">
+                                <div class="skill-bar-header">
+                                    <span>WordPress & SEO</span>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" style="--skill-width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill="85">
+                                <div class="skill-bar-header">
+                                    <span>MS Office Suite</span>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" style="--skill-width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill="65">
+                                <div class="skill-bar-header">
+                                    <span>Hardware Troubleshooting</span>
+                                    <span class="skill-percent">65%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" style="--skill-width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill="75">
+                                <div class="skill-bar-header">
+                                    <span>Photo Editing</span>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" style="--skill-width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar-item" data-skill="80">
+                                <div class="skill-bar-header">
+                                    <span>Document & Data Management</span>
+                                    <span class="skill-percent">80%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill" style="--skill-width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-panel" data-aos="fade-left" data-aos-delay="400">
+                        <h3 class="skills-panel-title">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Soft Skills
+                        </h3>
+                        <div class="soft-skills-grid">
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">💪</div>
+                                <span>Strong Work Ethic</span>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">⏰</div>
+                                <span>Time Management</span>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">🔄</div>
+                                <span>Adaptability</span>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">💡</div>
+                                <span>Creative Thinking</span>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">🛡️</div>
+                                <span>Resilience</span>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">🤝</div>
+                                <span>Team Collaboration</span>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">🗣️</div>
+                                <span>Communication</span>
+                            </div>
+                            <div class="soft-skill-card">
+                                <div class="soft-skill-icon">🧠</div>
+                                <span>Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EDUCATION SECTION ============ -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Academic Background</span>
+                    <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="timeline-marker">
+                            <div class="timeline-marker-dot"></div>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-badge current">Ongoing</div>
+                            <h3 class="timeline-title">Diploma in Computer Science & Technology</h3>
+                            <h4 class="timeline-subtitle">Lakshmipur Polytechnic Institute, BTEB</h4>
+                            <span class="timeline-date">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                2026 – Present
+                            </span>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                        <div class="timeline-marker">
+                            <div class="timeline-marker-dot"></div>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-badge">Completed</div>
+                            <h3 class="timeline-title">Higher Secondary Certificate (H.S.C)</h3>
+                            <h4 class="timeline-subtitle">Dalal Bazar Degree College — Science</h4>
+                            <span class="timeline-date">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                2022 — Comilla Board
+                            </span>
+                            <div class="timeline-gpa">CGPA: <strong>4.33 / 5.00</strong></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                        <div class="timeline-marker">
+                            <div class="timeline-marker-dot"></div>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-badge">Completed</div>
+                            <h3 class="timeline-title">Secondary School Certificate (S.S.C)</h3>
+                            <h4 class="timeline-subtitle">Lakshmipur Adarsha Samad Govt. High School — Science</h4>
+                            <span class="timeline-date">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                2020 — Comilla Board
+                            </span>
+                            <div class="timeline-gpa">CGPA: <strong>3.83 / 5.00</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIENCE SECTION ============ -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Career Journey</span>
+                    <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="experience-grid">
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="exp-card-glow"></div>
+                        <div class="exp-header">
+                            <div class="exp-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                            </div>
+                            <div class="exp-badge part-time">Part-time</div>
+                        </div>
+                        <h3 class="exp-title">Marketing Assistant</h3>
+                        <h4 class="exp-company">UDVASH</h4>
+                        <span class="exp-date">Feb 2024 – Present</span>
+                        <ul class="exp-list">
+                            <li>Plan and execute digital & field marketing campaigns</li>
+                            <li>Content creation, customer engagement & promotional activities</li>
+                            <li>Market trend monitoring and strategic decision-support reports</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="exp-card-glow"></div>
+                        <div class="exp-header">
+                            <div class="exp-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                            </div>
+                            <div class="exp-badge seasonal">Seasonal</div>
+                        </div>
+                        <h3 class="exp-title">Shoe Store Manager</h3>
+                        <h4 class="exp-company">Footwear Retailer</h4>
+                        <span class="exp-date">Feb 2026 – Apr 2026</span>
+                        <ul class="exp-list">
+                            <li>Managed store operations, staff coordination & inventory</li>
+                            <li>Sales reporting, stock arrangement & POS activities</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="exp-card-glow"></div>
+                        <div class="exp-header">
+                            <div class="exp-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                            </div>
+                            <div class="exp-badge fulltime">Full-time</div>
+                        </div>
+                        <h3 class="exp-title">Marketing Intern</h3>
+                        <h4 class="exp-company">British American Tobacco (BAT)</h4>
+                        <span class="exp-date">Jan 2024 – Aug 2024</span>
+                        <ul class="exp-list">
+                            <li>Competitive marketing programme with real-world field exposure</li>
+                            <li>Consumer research, brand visibility & promotional campaigns</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="exp-card-glow"></div>
+                        <div class="exp-header">
+                            <div class="exp-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <div class="exp-badge self">Self-employed</div>
+                        </div>
+                        <h3 class="exp-title">Shop Manager</h3>
+                        <h4 class="exp-company">Digital Copy Centre, Lakshmipur</h4>
+                        <span class="exp-date">Mar 2023 – Jul 2024</span>
+                        <ul class="exp-list">
+                            <li>Photocopy, photo-editing, passport services & stationery</li>
+                            <li>Equipment maintenance, inventory & quality control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CERTIFICATIONS SECTION ============ -->
+        <section id="certifications" class="section certifications-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Achievements</span>
+                    <h2 class="section-title">Certifications & <span class="gradient-text">Training</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="cert-grid">
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="cert-ribbon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="8" r="6"/>
+                                <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/>
+                            </svg>
+                        </div>
+                        <h3 class="cert-title">Computer Basic & Office Applications</h3>
+                        <p class="cert-org">Skill Development Training Center, Lakshmipur</p>
+                        <span class="cert-duration">Duration: 6 Months</span>
+                        <div class="cert-shine"></div>
+                    </div>
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="cert-ribbon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 15l-2 5l-5-2.18L5 23l7-3 7 3 .18-5.18L14 20z"/>
+                                <path d="M12 2L9 9h6z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="cert-title">VDP Basic Training – Armed</h3>
+                        <p class="cert-org">Bangladesh Ansar & VDP, District Training Center</p>
+                        <span class="cert-duration">21 Days, 2024</span>
+                        <div class="cert-shine"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT SECTION ============ -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+                        <h3 class="contact-info-title">Let's work together</h3>
+                        <p class="contact-info-text">
+                            Open to Web Development opportunities and freelance projects. 
+                            Feel free to reach out!
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <a href="mailto:abdurrahimpranto201918@gmail.com">abdurrahimpranto201918@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <a href="tel:+8801948107752">+880 1948-107752</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Banchanagar, Lakshmipur, Bangladesh</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="https://github.com/abdurrahimpranto201918-a11y" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                            <a href="https://www.facebook.com/share/1SfrtJg3yD/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/abdur-rahim-pranto-991941354" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                            <a href="mailto:abdurrahimpranto201918@gmail.com" class="social-link" aria-label="Email">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper" data-aos="fade-left" data-aos-delay="400">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="formName" name="name" required placeholder=" ">
+                                <label for="formName">Your Name</label>
+                                <div class="form-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="formEmail" name="email" required placeholder=" ">
+                                <label for="formEmail">Your Email</label>
+                                <div class="form-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="formMessage" name="message" rows="5" required placeholder=" "></textarea>
+                                <label for="formMessage">Your Message</label>
+                                <div class="form-line"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                                <span class="btn-text">Send Message</span>
+                                <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                <span class="btn-loading" style="display:none;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="30 70" class="spinner"/></svg>
+                                </span>
+                            </button>
+                        </form>
+                        <div id="formSuccess" class="form-success" style="display:none;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <h4>Message Sent!</h4>
+                            <p>Thank you for reaching out. I'll get back to you soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <svg class="footer-logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#06B6D4"/>
+                                    <stop offset="50%" stop-color="#7C3AED"/>
+                                    <stop offset="100%" stop-color="#EC4899"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="10" y="10" width="100" height="100" rx="24" fill="none" stroke="url(#footerLogoGrad)" stroke-width="3"/>
+                            <text x="60" y="76" font-family="'Space Grotesk', monospace" font-size="44" font-weight="700" fill="url(#footerLogoGrad)" text-anchor="middle">&lt;P/&gt;</text>
+                        </svg>
+                        <span>Pranto<span class="accent-dot">.</span></span>
+                    </a>
+                    <p class="footer-tagline">Building modern web experiences with passion, creativity, and precision.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://github.com/abdurrahimpranto201918-a11y" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/share/1SfrtJg3yD/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/abdur-rahim-pranto-991941354" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="mailto:abdurrahimpranto201918@gmail.com" aria-label="Email">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Abdur Rahim Pranto. All rights reserved.</p>
+                <p class="footer-made">Made with <span class="heart">♥</span> and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ BACK TO TOP ============ -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
